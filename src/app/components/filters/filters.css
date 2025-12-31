@@ -71,6 +71,20 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px 20px;
+}}
+/* Responsive */
+@media (max-width: 623px) {
+.checkbox-container, 
+.radio-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 20px;
 }
 }
+/* Responsive */
+@media (max-width: 623px) {
+.filters-header, .clean_btn {
+    flex-direction: column;
+    align-items: center;
+}}
 
