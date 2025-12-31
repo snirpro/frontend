@@ -24,6 +24,7 @@ export class SearchShow {
 
 //the constructor keep the parameter that the search-bar component send into a string value 
   constructor(private route: ActivatedRoute, private router: Router, private searchService: Search) {
+      console.log('Episodes component loaded');
     this.route.paramMap.subscribe(params => {
       this.show = params.get('show') ?? '';
       this.Init();
