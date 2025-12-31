@@ -1,0 +1,56 @@
+<body>
+    <div class="allEpisodes">
+        <!--Display all existing episodes on the current page -->
+        @for (result of paginatedResults; track $index) {
+            <div class="oneEpisode">
+
+                @if (result.image != null) {
+                    <div class="image">
+                        <img src="{{result.image.medium}}">
+                    </div>
+                }
+
+                <div class="details">
+                    <li><strong>name:</strong> {{result.EpisodeName}}</li>
+                    <li><strong>season:</strong> {{result.numSeason}}</li>
+                    <li><strong>episode:</strong> {{result.numEpisode}}</li>
+                    <li ><strong>summary:</strong> {{cleanSummary(result.summary)}} </li>
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+    <!-- Pagination Buttons -->
+    <div class="pagination">
+        <button 
+            (click)="prevPage()" 
+            [disabled]="currentPage === 1">
+            Previous
+        </button>
+
+        <span>Page {{currentPage}} / {{totalPages}}</span>
+
+        <button 
+            (click)="nextPage()"
+            [disabled]="currentPage >= totalPages">
+            Next
+        </button>
+
+            <!-- Jump to page -->
+    <div class="jumpBox">
+        <input 
+            type="number" 
+
+            min="1" 
+            [max]="totalPages"
+            [(ngModel)]="jumpPageNumber"
+            (ngModelChange)="onJumpInputChange($event)"
+            placeholder= "Go to page..."
+        />
+        <button (click)="jumpToPage()">Go</button>
+    </div>
+    </div>
+
+</body>

@@ -1,0 +1,34 @@
+  <!--Check if there is shows to display-->
+  @if (filteredResults.length === 0) {
+    <div class="no-results">No shows found</div>
+  }
+
+<div class="allShows">
+  <!--Display the available shows-->
+  @for (result of filteredResults; track $index) {
+    <div class="oneShow">
+      <div class="image">
+        <img src="{{ result.Image.medium }}">
+      </div>
+      <div class="details">
+        <li><strong>Show name: </strong>{{result.ShowName}}</li>
+        <li><strong>Geners:</strong>
+          @for (Gener of result.Generes; track $index) {
+            @if($index>0){
+            | {{Gener}}
+            }@else{
+              {{Gener}}
+            }
+            
+          }
+        </li>
+        <li>Average Rating: {{result.Rating.average}}</li>
+        <li>Language: {{result.Language}}</li>
+
+        <button (click)="Episodes(result.id)">Episodes List</button>
+      </div>
+    </div>
+  }
+
+</div>
+
