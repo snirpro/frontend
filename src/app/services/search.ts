@@ -8,7 +8,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class Search {
   httpClient = inject(HttpClient);
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://showtime-backend-y0u6.onrender.com';
   constructor() { }
 
   /*BehaviorSubject is an object from RxJS that manage vriabele value in real time

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class EpisodesList {
   httpClient = inject(HttpClient);
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://showtime-backend-y0u6.onrender.com';
   constructor() { }
 
 
